@@ -4,6 +4,7 @@ using namespace std;
 #include "Text.h"
 #include "CaesarCipher.h"
 #include "TextEditor.h"
+#include <string>
 
 CLI::CLI()
 {
@@ -60,7 +61,7 @@ CLI::CLI()
 		}
 		else if (command == 8)
 		{
-			printf("1 - encrypt text, 2 - decrypt text");
+			printf("1 - encrypt text, 2 - decrypt text\n");
 			command = commandOrKey();
 			printf("Enter input file path: ");
 			char* inputPath = file();
@@ -90,7 +91,7 @@ int CLI::commandOrKey(void)
 
 char* CLI::file(void)
 {
-	char path[256];
+	char* path = new char[256];
 	fgets(path, 256, stdin);
 	path[strcspn(path, "\n")] = '\0';
 	return path;
