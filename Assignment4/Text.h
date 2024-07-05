@@ -14,15 +14,15 @@ public:
 	void setColumnAmount(int columns);
 	int getRowsAmount(void);
 	int setRowsAmount(int rows);
-	int getBufferSize(void);
+	int const getBufferSize(void);
 	void reallocCollumns(void);
 	void reallocRows(void);
 private:
 	size_t bufferSize = 256;
 	char** text;
-	int columnAmount = 256;
-	int rowsAmount = 10;
-	int curRow = 0;
+	int columnAmount;
+	int rowsAmount;
+	int curRow;
 };
 
 #endif TEXT_H

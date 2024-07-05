@@ -4,7 +4,6 @@ using namespace std;
 
 Text::Text()
 {
-	bufferSize = 256;
 	columnAmount = 256;
 	rowsAmount = 10;
 	curRow = 0;
@@ -77,7 +76,7 @@ int Text::setRowsAmount(int rows)
 	rowsAmount = rows;
 }
 
-int Text::getBufferSize(void)
+int const Text::getBufferSize(void)
 {
 	return bufferSize;
 }
