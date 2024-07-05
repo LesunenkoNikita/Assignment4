@@ -15,7 +15,8 @@ public:
 	int getRowsAmount(void);
 	int setRowsAmount(int rows);
 	int getBufferSize(void);
-	void reallocColumns(void);
+	void reallocCollumns(void);
+	void reallocRows(void);
 private:
 	size_t bufferSize = 256;
 	char** text;
