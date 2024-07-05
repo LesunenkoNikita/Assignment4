@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "Text.h"
 using namespace std;
 #include <iostream>
@@ -71,7 +72,7 @@ int Text::getRowsAmount(void)
 	return rowsAmount;
 }
 
-int Text::setRowsAmount(int rows)
+void Text::setRowsAmount(int rows)
 {
 	rowsAmount = rows;
 }

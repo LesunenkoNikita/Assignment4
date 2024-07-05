@@ -1,6 +1,7 @@
 #ifndef TEXTEDITOR_H
 #define TEXTEDITOR_H
 #include "Text.h"
+#include "CaesarCipher.h"
 class TextEditor
 {
 public:

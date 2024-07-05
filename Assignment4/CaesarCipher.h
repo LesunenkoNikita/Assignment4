@@ -1,6 +1,9 @@
-#include <Windows.h>
 #ifndef CAESARCIPHER_H
-#define CAEASARCIPHER_H
+#define CAESARCIPHER_H
+
+#include <Windows.h>
+
+
 class CaesarCipher
 {
 public:

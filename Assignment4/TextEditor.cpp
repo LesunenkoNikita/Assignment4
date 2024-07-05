@@ -1,7 +1,9 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "TextEditor.h"
 #include "CaesarCipher.h"
 using namespace std;
 #include <iostream>
+
 
 void TextEditor::appendText(Text &text)
 {

@@ -13,7 +13,7 @@ public:
 	int getColumnAmount(void);
 	void setColumnAmount(int columns);
 	int getRowsAmount(void);
-	int setRowsAmount(int rows);
+	void setRowsAmount(int rows);
 	int const getBufferSize(void);
 	void reallocCollumns(void);
 	void reallocRows(void);
