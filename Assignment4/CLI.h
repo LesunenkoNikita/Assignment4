@@ -3,6 +3,7 @@
 
 class CLI
 {
+public:
 	CLI();
 	int commandOrKey(void);
 	char* file(void);
