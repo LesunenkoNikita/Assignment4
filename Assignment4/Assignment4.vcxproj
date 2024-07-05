@@ -129,9 +129,15 @@
   <ItemGroup>
     <ClCompile Include="CaesarCipher.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Text.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CaesarCipher.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Text.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Assignment4.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
