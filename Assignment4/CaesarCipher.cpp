@@ -25,3 +25,16 @@ CaesarCipher::~CaesarCipher()
 {
 	FreeLibrary(handle);
 }
+
+char* CaesarCipher::encryptText(char* rawText, int key) 
+{
+	char* text = encrypt_ptr(rawText, key);
+	text[strlen(text)] = '\0';
+	return text;
+}
+char* CaesarCipher::decryptText(char* encryptedText, int key)
+{
+	char* text = decrypt_ptr(encryptedText, key);
+	text[strlen(text)] = '\0';
+	return text;
+}
