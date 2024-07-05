@@ -16,8 +16,8 @@ CLI::CLI()
 3 - To save the text into a file\n\
 4 - To load the text from the file\n\
 5 - To print current text to console\n\
-6 - To insert the text by line and symbol index\n\
-7 - To search text\n\
+6 - To search text\n\
+7 - To insert the text by line and symbol index\n\
 8 - To encrypt or decrypt text\n");
 	while (1)
 	{
