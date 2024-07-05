@@ -128,12 +128,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CaesarCipher.cpp" />
+    <ClCompile Include="CLI.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Text.cpp" />
     <ClCompile Include="TextEditor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CaesarCipher.h" />
+    <ClInclude Include="CLI.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Text.h" />
     <ClInclude Include="TextEditor.h" />
