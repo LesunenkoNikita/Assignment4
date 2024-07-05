@@ -17,7 +17,7 @@ public:
 	int getBufferSize(void);
 	void reallocColumns(void);
 private:
-	const size_t bufferSize = 256;
+	size_t bufferSize = 256;
 	char** text;
 	int columnAmount = 256;
 	int rowsAmount = 10;
