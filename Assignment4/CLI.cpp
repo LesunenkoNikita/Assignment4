@@ -21,6 +21,7 @@ CLI::CLI()
 8 - To encrypt or decrypt text\n");
 	while (1)
 	{
+		printf("Enter the command: ");
 		int command = commandOrKey();
 		if (command == 1)
 		{
