@@ -5,14 +5,14 @@
 class TextEditor
 {
 public:
-	void appendText(Text &text);
+	void appendText(Text &text, char* input);
 	void newLine(Text &text);
 	void textPrint(Text &text);
-	void saveToFile(Text &text);
-	void loadFromFile(Text &text);
-	void search(Text &text);
-	void insertText(Text &text);
-	void caesar(Text &text, CaesarCipher cipher, int command, char* inputPath, char* outputPath, int key);
+	void saveToFile(Text &text, char* path);
+	void loadFromFile(Text &text, char* path);
+	void search(Text &text, char* word);
+	void insertText(Text &text, int row, int idx);
+	void caesar(Text &text, int command, char* inputPath, char* outputPath, int key);
 };
 
 #endif TEXTEDITOR_H

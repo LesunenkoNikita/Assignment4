@@ -5,11 +5,8 @@ using namespace std;
 #include <iostream>
 
 
-void TextEditor::appendText(Text &text)
+void TextEditor::appendText(Text &text, char* input)
 {
-	printf("Enter the text you want to append: ");
-	char* input = (char*)malloc(text.getBufferSize() * sizeof(char));
-	fgets(input, text.getBufferSize(), stdin);
 	if (sizeof(input) > (text.getColumnAmount() - sizeof(text.getText()[text.getCurRow()])))
 	{
 		text.reallocCollumns();
@@ -51,12 +48,8 @@ void TextEditor::textPrint(Text &text)
 	}
 }
 
-void TextEditor::saveToFile(Text &text)
+void TextEditor::saveToFile(Text &text, char* path)
 {
-	printf("Enter the path to the file: ");
-	char path[256];
-	fgets(path, 256, stdin);
-	path[strcspn(path, "\n")] = '\0';
 	FILE* file = fopen(path, "w");
 	if (file != NULL)
 	{
@@ -69,12 +62,8 @@ void TextEditor::saveToFile(Text &text)
 	fclose(file);
 }
 
-void TextEditor::loadFromFile(Text &text)
+void TextEditor::loadFromFile(Text &text, char* path)
 {
-	printf("Enter the path to file: ");
-	char path[256];
-	fgets(path, 256, stdin);
-	path[strcspn(path, "\n")] = '\0';
 	char lineFromFile[256];
 	int row = 0;
 	FILE* file = fopen(path, "r");
@@ -88,12 +77,8 @@ void TextEditor::loadFromFile(Text &text)
 	fclose(file);
 }
 
-void TextEditor::search(Text &text)
+void TextEditor::search(Text &text, char* word)
 {
-	printf("Enter the word you want to search: ");
-	char word[256];
-	fgets(word, 256, stdin);
-	word[strcspn(word, "\n")] = '\0';
 	int i = 0;
 	for (int r = 0; r <= text.getCurRow(); r++)
 	{
@@ -119,15 +104,8 @@ void TextEditor::search(Text &text)
 	}
 }
 
-void TextEditor::insertText(Text &text)
+void TextEditor::insertText(Text &text, int row, int idx)
 {
-	printf("Choose line and index: ");
-	char input[256];
-	fgets(input, 256, stdin);
-	input[strcspn(input, "\n")] = '\0';
-	int row, idx;
-	sscanf(input, "%d %d", &row, &idx);
-	row--;
 	if (row > text.getRowsAmount() || row < 0 || idx < 0 || idx > text.getColumnAmount())
 	{
 		printf("Wrong input! Exiting...");
@@ -157,32 +135,39 @@ void TextEditor::insertText(Text &text)
 	}
 }
 
-void TextEditor::caesar(Text& text, CaesarCipher cipher, int command, char* inputPath, char* outputPath, int key)
+void TextEditor::caesar(Text& text, int command, char* inputPath, char* outputPath, int key)
 {
-	if (command == 1)
+	try
 	{
-		FILE* outputFile = fopen(outputPath, "r");
-		FILE* inputFile = fopen(inputPath, "w");
-		char lineFromFile[256];
-		while(fgets(lineFromFile, 256, outputFile) != NULL)
+		CaesarCipher cipher;
+		if (command == 1)
 		{
-			fputs(cipher.encryptText(lineFromFile, key), inputFile);
-			fputs("\n", inputFile);
+			FILE* outputFile = fopen(outputPath, "r");
+			FILE* inputFile = fopen(inputPath, "w");
+			char lineFromFile[256];
+			while (fgets(lineFromFile, 256, outputFile) != NULL)
+			{
+				fputs(cipher.encryptText(lineFromFile, key), inputFile);
+				fputs("\n", inputFile);
+			}
+			fclose(inputFile);
+			fclose(outputFile);
 		}
-		fclose(inputFile);
-		fclose(outputFile);
+		else if (command == 2)
+		{
+			FILE* outputFile = fopen(outputPath, "r");
+			FILE* inputFile = fopen(inputPath, "w");
+			char lineFromFile[256];
+			while (fgets(lineFromFile, 256, outputFile) != NULL)
+			{
+				fputs(cipher.decryptText(lineFromFile, key), inputFile);
+			}
+			fclose(inputFile);
+			fclose(outputFile);
+		}
 	}
-	else if (command == 2)
+	catch (...)
 	{
-		FILE* outputFile = fopen(outputPath, "r");
-		FILE* inputFile = fopen(inputPath, "w");
-		char lineFromFile[256];
-		while (fgets(lineFromFile, 256, outputFile) != NULL)
-		{
-			fputs(cipher.decryptText(lineFromFile, key), inputFile);
-			fputs("\n", inputFile);
-		}
-		fclose(inputFile);
-		fclose(outputFile);
+		cout << "Caesar cipher functions are not available!" << endl;
 	}
 }
